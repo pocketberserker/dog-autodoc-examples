@@ -1,0 +1,284 @@
+<html>
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+</head>
+<body>
+
+<h2>POST /compile.json</h2>
+
+Compile posted code.
+
+This API accepts &quot;application/json&quot; in a &quot;Content-Type&quot; header.
+
+<h4>Request</h4>
+
+<pre><code>POST /wandbox/api/compile.json
+Content-type: application/json
+
+{
+  &quot;compiler&quot; : &quot;gcc-head&quot;,
+  &quot;compiler-option-raw&quot; : &quot;-Dx=hogefuga\n-O3&quot;,
+  &quot;code&quot; : &quot;#include &lt;iostream&gt;\nint main() { int x = 0; std::cout &lt;&lt; \&quot;hoge\&quot; &lt;&lt; std::endl; }&quot;,
+  &quot;options&quot; : &quot;warning,gnu++1y&quot;,
+  &quot;save&quot; : true
+}
+</code></pre>
+
+<h4>Response</h4>
+
+<pre><code>200
+Access-Control-Allow-Origin: *
+Connection: keep-alive
+Content-Type: application/json
+Date: Sun, 06 Sep 2015 15:04:24 GMT
+Server: nginx/1.9.0
+Status: HTTP/1.1 200 OK
+Transfer-Encoding: chunked
+X-Powered-By: CppCMS/1.0.4
+
+{
+  &quot;program_output&quot; : &quot;hoge\n&quot;,
+  &quot;url&quot; : &quot;http://melpon.org/wandbox/permlink/vn26zwc6EGiNEKmO&quot;,
+  &quot;compiler_message&quot; : &quot;prog.cc: In function &#x27;int main()&#x27;:\n&lt;command-line&gt;:0:3: warning: unused variable &#x27;hogefuga&#x27; [-Wunused-variable]\nprog.cc:2:18: note: in expansion of macro &#x27;x&#x27;\n int main() { int x = 0; std::cout &lt;&lt; \&quot;hoge\&quot; &lt;&lt; std::endl; }\n                  ^\n&quot;,
+  &quot;compiler_output&quot; : null,
+  &quot;compiler_error&quot; : &quot;prog.cc: In function &#x27;int main()&#x27;:\n&lt;command-line&gt;:0:3: warning: unused variable &#x27;hogefuga&#x27; [-Wunused-variable]\nprog.cc:2:18: note: in expansion of macro &#x27;x&#x27;\n int main() { int x = 0; std::cout &lt;&lt; \&quot;hoge\&quot; &lt;&lt; std::endl; }\n                  ^\n&quot;,
+  &quot;permlink&quot; : &quot;vn26zwc6EGiNEKmO&quot;,
+  &quot;status&quot; : &quot;0&quot;,
+  &quot;program_error&quot; : null,
+  &quot;program_message&quot; : &quot;hoge\n&quot;,
+  &quot;signal&quot; : null
+}
+</code></pre>
+
+<h2>GET /permlink/:link</h2>
+
+Get a result specified a permanent link :link
+
+<h4>Request</h4>
+
+<pre><code>GET /wandbox/api/permlink/vn26zwc6EGiNEKmO
+</code></pre>
+
+<h4>Response</h4>
+
+<pre><code>200
+Access-Control-Allow-Origin: *
+Connection: keep-alive
+Content-Type: application/json
+Date: Sun, 06 Sep 2015 15:04:24 GMT
+Server: nginx/1.9.0
+Status: HTTP/1.1 200 OK
+Transfer-Encoding: chunked
+X-Powered-By: CppCMS/1.0.4
+
+{
+  &quot;parameter&quot; : {
+    &quot;compiler-info&quot; : {
+      &quot;switches&quot; : [
+        {
+          &quot;name&quot; : &quot;warning&quot;,
+          &quot;display-flags&quot; : &quot;-Wall -Wextra&quot;,
+          &quot;default&quot; : true,
+          &quot;display-name&quot; : &quot;Warnings&quot;,
+          &quot;type&quot; : &quot;single&quot;
+        },
+        {
+          &quot;name&quot; : &quot;optimize&quot;,
+          &quot;display-flags&quot; : &quot;-O2 -march=native&quot;,
+          &quot;default&quot; : false,
+          &quot;display-name&quot; : &quot;Optimization&quot;,
+          &quot;type&quot; : &quot;single&quot;
+        },
+        {
+          &quot;name&quot; : &quot;cpp-verbose&quot;,
+          &quot;display-flags&quot; : &quot;-v&quot;,
+          &quot;default&quot; : false,
+          &quot;display-name&quot; : &quot;Verbose&quot;,
+          &quot;type&quot; : &quot;single&quot;
+        },
+        {
+          &quot;default&quot; : &quot;boost-1.59&quot;,
+          &quot;options&quot; : [
+            {
+              &quot;display-name&quot; : &quot;Don&#x27;t Use Boost&quot;,
+              &quot;display-flags&quot; : &quot;&quot;,
+              &quot;name&quot; : &quot;boost-nothing&quot;
+            },
+            {
+              &quot;display-name&quot; : &quot;Boost 1.47.0&quot;,
+              &quot;display-flags&quot; : &quot;-I/usr/local/boost-1.47.0/include&quot;,
+              &quot;name&quot; : &quot;boost-1.47&quot;
+            },
+            {
+              &quot;display-name&quot; : &quot;Boost 1.48.0&quot;,
+              &quot;display-flags&quot; : &quot;-I/usr/local/boost-1.48.0/include&quot;,
+              &quot;name&quot; : &quot;boost-1.48&quot;
+            },
+            {
+              &quot;display-name&quot; : &quot;Boost 1.49.0&quot;,
+              &quot;display-flags&quot; : &quot;-I/usr/local/boost-1.49.0/include&quot;,
+              &quot;name&quot; : &quot;boost-1.49&quot;
+            },
+            {
+              &quot;display-name&quot; : &quot;Boost 1.50.0&quot;,
+              &quot;display-flags&quot; : &quot;-I/usr/local/boost-1.50.0/include&quot;,
+              &quot;name&quot; : &quot;boost-1.50&quot;
+            },
+            {
+              &quot;display-name&quot; : &quot;Boost 1.51.0&quot;,
+              &quot;display-flags&quot; : &quot;-I/usr/local/boost-1.51.0/include&quot;,
+              &quot;name&quot; : &quot;boost-1.51&quot;
+            },
+            {
+              &quot;display-name&quot; : &quot;Boost 1.52.0&quot;,
+              &quot;display-flags&quot; : &quot;-I/usr/local/boost-1.52.0/include&quot;,
+              &quot;name&quot; : &quot;boost-1.52&quot;
+            },
+            {
+              &quot;display-name&quot; : &quot;Boost 1.53.0&quot;,
+              &quot;display-flags&quot; : &quot;-I/usr/local/boost-1.53.0/include&quot;,
+              &quot;name&quot; : &quot;boost-1.53&quot;
+            },
+            {
+              &quot;display-name&quot; : &quot;Boost 1.54.0&quot;,
+              &quot;display-flags&quot; : &quot;-I/usr/local/boost-1.54.0/include&quot;,
+              &quot;name&quot; : &quot;boost-1.54&quot;
+            },
+            {
+              &quot;display-name&quot; : &quot;Boost 1.55.0&quot;,
+              &quot;display-flags&quot; : &quot;-I/usr/local/boost-1.55.0/include&quot;,
+              &quot;name&quot; : &quot;boost-1.55&quot;
+            },
+            {
+              &quot;display-name&quot; : &quot;Boost 1.56.0&quot;,
+              &quot;display-flags&quot; : &quot;-I/usr/local/boost-1.56.0/include&quot;,
+              &quot;name&quot; : &quot;boost-1.56&quot;
+            },
+            {
+              &quot;display-name&quot; : &quot;Boost 1.57.0&quot;,
+              &quot;display-flags&quot; : &quot;-I/usr/local/boost-1.57.0/include&quot;,
+              &quot;name&quot; : &quot;boost-1.57&quot;
+            },
+            {
+              &quot;display-name&quot; : &quot;Boost 1.58.0&quot;,
+              &quot;display-flags&quot; : &quot;-I/usr/local/boost-1.58.0/include&quot;,
+              &quot;name&quot; : &quot;boost-1.58&quot;
+            },
+            {
+              &quot;display-name&quot; : &quot;Boost 1.59.0&quot;,
+              &quot;display-flags&quot; : &quot;-I/usr/local/boost-1.59.0/include&quot;,
+              &quot;name&quot; : &quot;boost-1.59&quot;
+            }
+          ],
+          &quot;type&quot; : &quot;select&quot;
+        },
+        {
+          &quot;name&quot; : &quot;sprout&quot;,
+          &quot;display-flags&quot; : &quot;-I/usr/local/sprout&quot;,
+          &quot;default&quot; : true,
+          &quot;display-name&quot; : &quot;Sprout&quot;,
+          &quot;type&quot; : &quot;single&quot;
+        },
+        {
+          &quot;default&quot; : &quot;gnu++1z&quot;,
+          &quot;options&quot; : [
+            {
+              &quot;display-name&quot; : &quot;C++03&quot;,
+              &quot;display-flags&quot; : &quot;-std=c++98&quot;,
+              &quot;name&quot; : &quot;c++98&quot;
+            },
+            {
+              &quot;display-name&quot; : &quot;C++03(GNU)&quot;,
+              &quot;display-flags&quot; : &quot;-std=gnu++98&quot;,
+              &quot;name&quot; : &quot;gnu++98&quot;
+            },
+            {
+              &quot;display-name&quot; : &quot;C++11&quot;,
+              &quot;display-flags&quot; : &quot;-std=c++11&quot;,
+              &quot;name&quot; : &quot;c++11&quot;
+            },
+            {
+              &quot;display-name&quot; : &quot;C++11(GNU)&quot;,
+              &quot;display-flags&quot; : &quot;-std=gnu++11&quot;,
+              &quot;name&quot; : &quot;gnu++11&quot;
+            },
+            {
+              &quot;display-name&quot; : &quot;C++14&quot;,
+              &quot;display-flags&quot; : &quot;-std=c++14&quot;,
+              &quot;name&quot; : &quot;c++14&quot;
+            },
+            {
+              &quot;display-name&quot; : &quot;C++14(GNU)&quot;,
+              &quot;display-flags&quot; : &quot;-std=gnu++14&quot;,
+              &quot;name&quot; : &quot;gnu++14&quot;
+            },
+            {
+              &quot;display-name&quot; : &quot;C++1z&quot;,
+              &quot;display-flags&quot; : &quot;-std=c++1z&quot;,
+              &quot;name&quot; : &quot;c++1z&quot;
+            },
+            {
+              &quot;display-name&quot; : &quot;C++1z(GNU)&quot;,
+              &quot;display-flags&quot; : &quot;-std=gnu++1z&quot;,
+              &quot;name&quot; : &quot;gnu++1z&quot;
+            }
+          ],
+          &quot;type&quot; : &quot;select&quot;
+        },
+        {
+          &quot;default&quot; : &quot;cpp-no-pedantic&quot;,
+          &quot;options&quot; : [
+            {
+              &quot;display-name&quot; : &quot;no pedantic&quot;,
+              &quot;display-flags&quot; : &quot;&quot;,
+              &quot;name&quot; : &quot;cpp-no-pedantic&quot;
+            },
+            {
+              &quot;display-name&quot; : &quot;-pedantic&quot;,
+              &quot;display-flags&quot; : &quot;-pedantic&quot;,
+              &quot;name&quot; : &quot;cpp-pedantic&quot;
+            },
+            {
+              &quot;display-name&quot; : &quot;-pedantic-errors&quot;,
+              &quot;display-flags&quot; : &quot;-pedantic-errors&quot;,
+              &quot;name&quot; : &quot;cpp-pedantic-errors&quot;
+            }
+          ],
+          &quot;type&quot; : &quot;select&quot;
+        }
+      ],
+      &quot;name&quot; : &quot;gcc-head&quot;,
+      &quot;display-compile-command&quot; : &quot;g++ prog.cc&quot;,
+      &quot;runtime-option-raw&quot; : false,
+      &quot;compiler-option-raw&quot; : true,
+      &quot;version&quot; : &quot;6.0.0 20150905 (experimental)&quot;,
+      &quot;language&quot; : &quot;C++&quot;,
+      &quot;display-name&quot; : &quot;gcc HEAD&quot;
+    },
+    &quot;runtime-option-raw&quot; : &quot;&quot;,
+    &quot;compiler&quot; : &quot;gcc-head&quot;,
+    &quot;created-at&quot; : &quot;2015-09-06T15:04:24.000+09:00&quot;,
+    &quot;compiler-option-raw&quot; : &quot;-Dx=hogefuga\n-O3&quot;,
+    &quot;code&quot; : &quot;#include &lt;iostream&gt;\nint main() { int x = 0; std::cout &lt;&lt; \&quot;hoge\&quot; &lt;&lt; std::endl; }&quot;,
+    &quot;options&quot; : &quot;warning,gnu++1y&quot;,
+    &quot;stdin&quot; : &quot;&quot;
+  },
+  &quot;result&quot; : {
+    &quot;program_output&quot; : &quot;hoge\n&quot;,
+    &quot;url&quot; : null,
+    &quot;compiler_message&quot; : &quot;prog.cc: In function &#x27;int main()&#x27;:\n&lt;command-line&gt;:0:3: warning: unused variable &#x27;hogefuga&#x27; [-Wunused-variable]\nprog.cc:2:18: note: in expansion of macro &#x27;x&#x27;\n int main() { int x = 0; std::cout &lt;&lt; \&quot;hoge\&quot; &lt;&lt; std::endl; }\n                  ^\n&quot;,
+    &quot;compiler_output&quot; : null,
+    &quot;compiler_error&quot; : &quot;prog.cc: In function &#x27;int main()&#x27;:\n&lt;command-line&gt;:0:3: warning: unused variable &#x27;hogefuga&#x27; [-Wunused-variable]\nprog.cc:2:18: note: in expansion of macro &#x27;x&#x27;\n int main() { int x = 0; std::cout &lt;&lt; \&quot;hoge\&quot; &lt;&lt; std::endl; }\n                  ^\n&quot;,
+    &quot;permlink&quot; : null,
+    &quot;status&quot; : &quot;0&quot;,
+    &quot;program_error&quot; : null,
+    &quot;program_message&quot; : &quot;hoge\n&quot;,
+    &quot;signal&quot; : null
+  }
+}
+</code></pre>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>
