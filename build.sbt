@@ -9,6 +9,8 @@ fullResolvers ~= {_.filterNot(_.name == "jcenter")}
 autodocSettings
 autodocVersion := "0.1.3"
 autodocEnable := true
+autodocHtml := true
+autodocToc := true
 
 libraryDependencies ++= Seq(
   "com.github.xuwei-k" %% "httpz-scalaj" % "0.3.0",
