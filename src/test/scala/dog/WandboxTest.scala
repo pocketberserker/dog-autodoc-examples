@@ -23,8 +23,8 @@ object WandboxTest extends Dog {
 
   val `POST /compile.json` = {
     val compile = Compile(
-      "#include <iostream>\nint main() { int x = 0; std::cout << \"hoge\" << std::endl; }",
-      "gcc-head",
+      compiler = "gcc-head",
+      code = "#include <iostream>\nint main() { int x = 0; std::cout << \"hoge\" << std::endl; }",
       options = Some("warning,gnu++1y"),
       compilerOptionRaw = Some("-Dx=hogefuga\n-O3"),
       save = Some(true)
@@ -36,7 +36,7 @@ This API accepts "application/json" in a "Content-Type" header."""
     val action = Autodoc.json[CompileResult](req, description)
     Autodoc[CompileResult](interpreter, action.nel){ res =>
       Assert.equal(200, res.status)
-    }.skip("400 bad request...")
+    }
   }
 
   val `GET /permlink/:link` = for {
