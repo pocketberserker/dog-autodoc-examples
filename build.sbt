@@ -7,7 +7,7 @@ scalacOptions ++= Seq("-feature", "-language:higherKinds")
 fullResolvers ~= {_.filterNot(_.name == "jcenter")}
 
 autodocSettings
-autodocVersion := "0.1.4"
+autodocVersion := "0.2.0"
 autodocEnable := true
 autodocHtml := true
 autodocToc := true

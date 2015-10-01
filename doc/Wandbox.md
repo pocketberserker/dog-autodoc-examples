@@ -23,7 +23,7 @@ Content-type: application/json
 Access-Control-Allow-Origin: *
 Connection: keep-alive
 Content-Type: application/json
-Date: Sun, 06 Sep 2015 15:31:52 GMT
+Date: Thu, 01 Oct 2015 11:16:05 GMT
 Server: nginx/1.9.0
 Status: HTTP/1.1 200 OK
 Transfer-Encoding: chunked
@@ -31,11 +31,11 @@ X-Powered-By: CppCMS/1.0.4
 
 {
   "program_output" : "hoge\n",
-  "url" : "http://melpon.org/wandbox/permlink/LgmxrwCstaqHagwc",
+  "url" : "http://melpon.org/wandbox/permlink/leg2vEELCxhqtaXs",
   "compiler_message" : "prog.cc: In function 'int main()':\n<command-line>:0:3: warning: unused variable 'hogefuga' [-Wunused-variable]\nprog.cc:2:18: note: in expansion of macro 'x'\n int main() { int x = 0; std::cout << \"hoge\" << std::endl; }\n                  ^\n",
   "compiler_output" : null,
   "compiler_error" : "prog.cc: In function 'int main()':\n<command-line>:0:3: warning: unused variable 'hogefuga' [-Wunused-variable]\nprog.cc:2:18: note: in expansion of macro 'x'\n int main() { int x = 0; std::cout << \"hoge\" << std::endl; }\n                  ^\n",
-  "permlink" : "LgmxrwCstaqHagwc",
+  "permlink" : "leg2vEELCxhqtaXs",
   "status" : "0",
   "program_error" : null,
   "program_message" : "hoge\n",
@@ -48,7 +48,7 @@ Get a result specified a permanent link :link
 
 #### Request
 ```
-GET /wandbox/api/permlink/LgmxrwCstaqHagwc
+GET /wandbox/api/permlink/leg2vEELCxhqtaXs
 ```
 
 #### Response
@@ -57,7 +57,7 @@ GET /wandbox/api/permlink/LgmxrwCstaqHagwc
 Access-Control-Allow-Origin: *
 Connection: keep-alive
 Content-Type: application/json
-Date: Sun, 06 Sep 2015 15:31:52 GMT
+Date: Thu, 01 Oct 2015 11:16:05 GMT
 Server: nginx/1.9.0
 Status: HTTP/1.1 200 OK
 Transfer-Encoding: chunked
@@ -172,6 +172,13 @@ X-Powered-By: CppCMS/1.0.4
           "type" : "single"
         },
         {
+          "name" : "msgpack",
+          "display-flags" : "-I/usr/local/msgpack/include",
+          "default" : false,
+          "display-name" : "MessagePack",
+          "type" : "single"
+        },
+        {
           "default" : "gnu++1z",
           "options" : [
             {
@@ -243,13 +250,13 @@ X-Powered-By: CppCMS/1.0.4
       "display-compile-command" : "g++ prog.cc",
       "runtime-option-raw" : false,
       "compiler-option-raw" : true,
-      "version" : "6.0.0 20150905 (experimental)",
+      "version" : "6.0.0 20150930 (experimental)",
       "language" : "C++",
       "display-name" : "gcc HEAD"
     },
     "runtime-option-raw" : "",
     "compiler" : "gcc-head",
-    "created-at" : "2015-09-06T15:31:51.000+09:00",
+    "created-at" : "2015-10-01T11:16:05.000+09:00",
     "compiler-option-raw" : "-Dx=hogefuga\n-O3",
     "code" : "#include <iostream>\nint main() { int x = 0; std::cout << \"hoge\" << std::endl; }",
     "options" : "warning,gnu++1y",

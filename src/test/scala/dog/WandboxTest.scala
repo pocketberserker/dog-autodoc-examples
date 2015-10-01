@@ -5,7 +5,7 @@ package examples
 import Wandbox._
 import Show._
 
-object WandboxTest extends Dog {
+object WandboxTest extends DogAutodoc {
 
   val interpreter = httpz.scalajhttp.ScalajInterpreter.sequential.empty
 
