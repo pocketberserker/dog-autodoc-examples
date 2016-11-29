@@ -31,19 +31,19 @@ Content-type: application/json
 Access-Control-Allow-Origin: *
 Connection: keep-alive
 Content-Type: application/json
-Date: Thu, 01 Oct 2015 11:16:05 GMT
-Server: nginx/1.9.0
+Date: Tue, 29 Nov 2016 15:47:42 GMT
+Server: nginx/1.11.5
 Status: HTTP/1.1 200 OK
 Transfer-Encoding: chunked
 X-Powered-By: CppCMS/1.0.4
 
 {
   &quot;program_output&quot; : &quot;hoge\n&quot;,
-  &quot;url&quot; : &quot;http://melpon.org/wandbox/permlink/leg2vEELCxhqtaXs&quot;,
+  &quot;url&quot; : &quot;http://melpon.org/wandbox/permlink/2VOZvTNLD4CuZEpQ&quot;,
   &quot;compiler_message&quot; : &quot;prog.cc: In function &#x27;int main()&#x27;:\n&lt;command-line&gt;:0:3: warning: unused variable &#x27;hogefuga&#x27; [-Wunused-variable]\nprog.cc:2:18: note: in expansion of macro &#x27;x&#x27;\n int main() { int x = 0; std::cout &lt;&lt; \&quot;hoge\&quot; &lt;&lt; std::endl; }\n                  ^\n&quot;,
   &quot;compiler_output&quot; : null,
   &quot;compiler_error&quot; : &quot;prog.cc: In function &#x27;int main()&#x27;:\n&lt;command-line&gt;:0:3: warning: unused variable &#x27;hogefuga&#x27; [-Wunused-variable]\nprog.cc:2:18: note: in expansion of macro &#x27;x&#x27;\n int main() { int x = 0; std::cout &lt;&lt; \&quot;hoge\&quot; &lt;&lt; std::endl; }\n                  ^\n&quot;,
-  &quot;permlink&quot; : &quot;leg2vEELCxhqtaXs&quot;,
+  &quot;permlink&quot; : &quot;2VOZvTNLD4CuZEpQ&quot;,
   &quot;status&quot; : &quot;0&quot;,
   &quot;program_error&quot; : null,
   &quot;program_message&quot; : &quot;hoge\n&quot;,
@@ -57,7 +57,7 @@ Get a result specified a permanent link :link
 
 <h4>Request</h4>
 
-<pre><code>GET /wandbox/api/permlink/leg2vEELCxhqtaXs
+<pre><code>GET /wandbox/api/permlink/2VOZvTNLD4CuZEpQ
 </code></pre>
 
 <h4>Response</h4>
@@ -66,8 +66,8 @@ Get a result specified a permanent link :link
 Access-Control-Allow-Origin: *
 Connection: keep-alive
 Content-Type: application/json
-Date: Thu, 01 Oct 2015 11:16:05 GMT
-Server: nginx/1.9.0
+Date: Tue, 29 Nov 2016 15:47:42 GMT
+Server: nginx/1.11.5
 Status: HTTP/1.1 200 OK
 Transfer-Encoding: chunked
 X-Powered-By: CppCMS/1.0.4
@@ -98,7 +98,7 @@ X-Powered-By: CppCMS/1.0.4
           &quot;type&quot; : &quot;single&quot;
         },
         {
-          &quot;default&quot; : &quot;boost-1.59&quot;,
+          &quot;default&quot; : &quot;boost-1.62&quot;,
           &quot;options&quot; : [
             {
               &quot;display-name&quot; : &quot;Don&#x27;t Use Boost&quot;,
@@ -169,6 +169,21 @@ X-Powered-By: CppCMS/1.0.4
               &quot;display-name&quot; : &quot;Boost 1.59.0&quot;,
               &quot;display-flags&quot; : &quot;-I/usr/local/boost-1.59.0/include&quot;,
               &quot;name&quot; : &quot;boost-1.59&quot;
+            },
+            {
+              &quot;display-name&quot; : &quot;Boost 1.60.0&quot;,
+              &quot;display-flags&quot; : &quot;-I/usr/local/boost-1.60.0/include&quot;,
+              &quot;name&quot; : &quot;boost-1.60&quot;
+            },
+            {
+              &quot;display-name&quot; : &quot;Boost 1.61.0&quot;,
+              &quot;display-flags&quot; : &quot;-I/usr/local/boost-1.61.0/include&quot;,
+              &quot;name&quot; : &quot;boost-1.61&quot;
+            },
+            {
+              &quot;display-name&quot; : &quot;Boost 1.62.0&quot;,
+              &quot;display-flags&quot; : &quot;-I/usr/local/boost-1.62.0/include&quot;,
+              &quot;name&quot; : &quot;boost-1.62&quot;
             }
           ],
           &quot;type&quot; : &quot;select&quot;
@@ -176,7 +191,7 @@ X-Powered-By: CppCMS/1.0.4
         {
           &quot;name&quot; : &quot;sprout&quot;,
           &quot;display-flags&quot; : &quot;-I/usr/local/sprout&quot;,
-          &quot;default&quot; : true,
+          &quot;default&quot; : false,
           &quot;display-name&quot; : &quot;Sprout&quot;,
           &quot;type&quot; : &quot;single&quot;
         },
@@ -259,13 +274,13 @@ X-Powered-By: CppCMS/1.0.4
       &quot;display-compile-command&quot; : &quot;g++ prog.cc&quot;,
       &quot;runtime-option-raw&quot; : false,
       &quot;compiler-option-raw&quot; : true,
-      &quot;version&quot; : &quot;6.0.0 20150930 (experimental)&quot;,
+      &quot;version&quot; : &quot;7.0.0 20161128 (experimental)&quot;,
       &quot;language&quot; : &quot;C++&quot;,
       &quot;display-name&quot; : &quot;gcc HEAD&quot;
     },
     &quot;runtime-option-raw&quot; : &quot;&quot;,
     &quot;compiler&quot; : &quot;gcc-head&quot;,
-    &quot;created-at&quot; : &quot;2015-10-01T11:16:05.000+09:00&quot;,
+    &quot;created-at&quot; : &quot;2016-11-29T15:47:42.000+09:00&quot;,
     &quot;compiler-option-raw&quot; : &quot;-Dx=hogefuga\n-O3&quot;,
     &quot;code&quot; : &quot;#include &lt;iostream&gt;\nint main() { int x = 0; std::cout &lt;&lt; \&quot;hoge\&quot; &lt;&lt; std::endl; }&quot;,
     &quot;options&quot; : &quot;warning,gnu++1y&quot;,

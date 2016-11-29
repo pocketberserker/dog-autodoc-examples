@@ -23,19 +23,19 @@ Content-type: application/json
 Access-Control-Allow-Origin: *
 Connection: keep-alive
 Content-Type: application/json
-Date: Thu, 01 Oct 2015 11:16:05 GMT
-Server: nginx/1.9.0
+Date: Tue, 29 Nov 2016 15:47:42 GMT
+Server: nginx/1.11.5
 Status: HTTP/1.1 200 OK
 Transfer-Encoding: chunked
 X-Powered-By: CppCMS/1.0.4
 
 {
   "program_output" : "hoge\n",
-  "url" : "http://melpon.org/wandbox/permlink/leg2vEELCxhqtaXs",
+  "url" : "http://melpon.org/wandbox/permlink/2VOZvTNLD4CuZEpQ",
   "compiler_message" : "prog.cc: In function 'int main()':\n<command-line>:0:3: warning: unused variable 'hogefuga' [-Wunused-variable]\nprog.cc:2:18: note: in expansion of macro 'x'\n int main() { int x = 0; std::cout << \"hoge\" << std::endl; }\n                  ^\n",
   "compiler_output" : null,
   "compiler_error" : "prog.cc: In function 'int main()':\n<command-line>:0:3: warning: unused variable 'hogefuga' [-Wunused-variable]\nprog.cc:2:18: note: in expansion of macro 'x'\n int main() { int x = 0; std::cout << \"hoge\" << std::endl; }\n                  ^\n",
-  "permlink" : "leg2vEELCxhqtaXs",
+  "permlink" : "2VOZvTNLD4CuZEpQ",
   "status" : "0",
   "program_error" : null,
   "program_message" : "hoge\n",
@@ -48,7 +48,7 @@ Get a result specified a permanent link :link
 
 #### Request
 ```
-GET /wandbox/api/permlink/leg2vEELCxhqtaXs
+GET /wandbox/api/permlink/2VOZvTNLD4CuZEpQ
 ```
 
 #### Response
@@ -57,8 +57,8 @@ GET /wandbox/api/permlink/leg2vEELCxhqtaXs
 Access-Control-Allow-Origin: *
 Connection: keep-alive
 Content-Type: application/json
-Date: Thu, 01 Oct 2015 11:16:05 GMT
-Server: nginx/1.9.0
+Date: Tue, 29 Nov 2016 15:47:42 GMT
+Server: nginx/1.11.5
 Status: HTTP/1.1 200 OK
 Transfer-Encoding: chunked
 X-Powered-By: CppCMS/1.0.4
@@ -89,7 +89,7 @@ X-Powered-By: CppCMS/1.0.4
           "type" : "single"
         },
         {
-          "default" : "boost-1.59",
+          "default" : "boost-1.62",
           "options" : [
             {
               "display-name" : "Don't Use Boost",
@@ -160,6 +160,21 @@ X-Powered-By: CppCMS/1.0.4
               "display-name" : "Boost 1.59.0",
               "display-flags" : "-I/usr/local/boost-1.59.0/include",
               "name" : "boost-1.59"
+            },
+            {
+              "display-name" : "Boost 1.60.0",
+              "display-flags" : "-I/usr/local/boost-1.60.0/include",
+              "name" : "boost-1.60"
+            },
+            {
+              "display-name" : "Boost 1.61.0",
+              "display-flags" : "-I/usr/local/boost-1.61.0/include",
+              "name" : "boost-1.61"
+            },
+            {
+              "display-name" : "Boost 1.62.0",
+              "display-flags" : "-I/usr/local/boost-1.62.0/include",
+              "name" : "boost-1.62"
             }
           ],
           "type" : "select"
@@ -167,7 +182,7 @@ X-Powered-By: CppCMS/1.0.4
         {
           "name" : "sprout",
           "display-flags" : "-I/usr/local/sprout",
-          "default" : true,
+          "default" : false,
           "display-name" : "Sprout",
           "type" : "single"
         },
@@ -250,13 +265,13 @@ X-Powered-By: CppCMS/1.0.4
       "display-compile-command" : "g++ prog.cc",
       "runtime-option-raw" : false,
       "compiler-option-raw" : true,
-      "version" : "6.0.0 20150930 (experimental)",
+      "version" : "7.0.0 20161128 (experimental)",
       "language" : "C++",
       "display-name" : "gcc HEAD"
     },
     "runtime-option-raw" : "",
     "compiler" : "gcc-head",
-    "created-at" : "2015-10-01T11:16:05.000+09:00",
+    "created-at" : "2016-11-29T15:47:42.000+09:00",
     "compiler-option-raw" : "-Dx=hogefuga\n-O3",
     "code" : "#include <iostream>\nint main() { int x = 0; std::cout << \"hoge\" << std::endl; }",
     "options" : "warning,gnu++1y",
